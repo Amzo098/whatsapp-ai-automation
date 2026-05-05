@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp AI Bot - Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">🤖</div>
+    <div>
+      <h1>WhatsApp AI Bot</h1>
+      <p>Dashboard de gestion des conversations</p>
+    </div>
+    <div class="status-badge">En ligne</div>
+  </header>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="icon">💬</div>
+      <div class="value" id="totalConversations">--</div>
+      <div class="label">Conversations</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon">📨</div>
+      <div class="value" id="totalMessages">--</div>
+      <div class="label">Messages traités</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon">🤖</div>
+      <div class="value">Gemini</div>
+      <div class="label">Moteur IA actif</div>
+    </div>
+    <div class="stat-card">
+      <div class="icon">⚡</div>
+      <div class="value" id="lastActivity">--</div>
+      <div class="label">Dernière activité</div>
+    </div>
+  </div>
+
+  <!-- Conversations -->
+  <div class="section">
+    <h2>Conversations récentes</h2>
+    <button class="refresh-btn" onclick="loadData()">🔄 Actualiser</button>
+    <div class="conversations-list" id="conversationsList">
+      <div class="empty">
+        <div class="icon">📭</div>
+        <p>Chargement des conversations...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal détail conversation -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Conversation</h3>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
