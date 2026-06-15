@@ -1,0 +1,10 @@
+# Generated artifacts — do not commit
+clients/*/prepared/
+clients/*/cards/
+clients/*/audio/
+clients/*/_tmp/
+output/
+__pycache__/
+*.pyc
+*.mp4
+*.wav
