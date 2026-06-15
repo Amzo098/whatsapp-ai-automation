@@ -357,9 +357,23 @@ def card_to_clip(png: Path, dur: float, out: Path):
     )
 
 
+# Per-video delogo zones (source resolution 464×832)
+# The "☼ Meta AI" badge sits in the upper-right; position varies per clip.
+_WM_ZONE = {
+    "052f01e7": "delogo=x=313:y=218:w=148:h=38",  # façade — tight, avoids wall sign text
+    "7504afb3": "delogo=x=278:y=210:w=183:h=40",  # salle couple
+    "7aff9dd9": "delogo=x=278:y=148:w=183:h=40",  # terrasse + serveur
+    "a72751a2": "delogo=x=313:y=205:w=148:h=35",  # poisson grillé
+    "ddea8fb3": "delogo=x=270:y=210:w=188:h=40",  # pouce levé
+}
+
+
 def video_to_clip(src: Path, dur: float, out: Path):
-    """Scale uploaded video to 1080×1920, force 30fps, trim to dur."""
+    """Scale uploaded video to 1080×1920, remove Meta AI watermark, force 30fps."""
+    prefix  = src.name[:8]
+    delogo  = _WM_ZONE.get(prefix, "delogo=x=270:y=140:w=195:h=140")
     vf = (
+        f"{delogo},"
         f"scale={W}:{H}:force_original_aspect_ratio=increase,"
         f"crop={W}:{H},"
         f"fps={FPS},"
@@ -372,7 +386,7 @@ def video_to_clip(src: Path, dur: float, out: Path):
          "-r", str(FPS),
          "-c:v", "libx264", "-preset", "veryfast", "-crf", "19",
          "-an", str(out)],
-        f"video → clip  {src.name} ({dur}s)",
+        f"video → clip  {src.name} ({dur}s, watermark removed)",
     )
 
 
