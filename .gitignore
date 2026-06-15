@@ -3,3 +3,6 @@ node_modules/
 data/conversations.json
 *.log
 .DS_Store
+
+# Output videos
+video_production/output/

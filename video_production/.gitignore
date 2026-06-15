@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 *.mp4
 *.wav
+# Allow Remotion source assets
+!restaurant-remotion/public/*.mp4
+!restaurant-remotion/public/*.wav
