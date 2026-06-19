@@ -4,6 +4,7 @@ import { Main45s } from "./Main45s";
 import { MainChoixDesPlats } from "./MainChoixDesPlats";
 import { MainTestimonial } from "./MainTestimonial";
 import { MainCoulisses } from "./MainCoulisses";
+import { MainPatisserie } from "./MainPatisserie";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -40,6 +41,15 @@ export const RemotionRoot: React.FC = () => {
         id="DansLesCoulisses"
         component={MainCoulisses}
         durationInFrames={456}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      {/* Vidéo "Le Coin Pâtisserie" — ligne produit gâteaux cœur 14.3s */}
+      <Composition
+        id="LeCoinPatisserie"
+        component={MainPatisserie}
+        durationInFrames={429}
         fps={30}
         width={1080}
         height={1920}
