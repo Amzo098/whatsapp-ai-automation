@@ -3,6 +3,7 @@ import { Composition } from "remotion";
 import { Main45s } from "./Main45s";
 import { MainChoixDesPlats } from "./MainChoixDesPlats";
 import { MainTestimonial } from "./MainTestimonial";
+import { MainCoulisses } from "./MainCoulisses";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -30,6 +31,15 @@ export const RemotionRoot: React.FC = () => {
         id="TemoignageClients"
         component={MainTestimonial}
         durationInFrames={662}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      {/* Vidéo "Dans les coulisses" — format ASMR pâtisserie 15s */}
+      <Composition
+        id="DansLesCoulisses"
+        component={MainCoulisses}
+        durationInFrames={456}
         fps={30}
         width={1080}
         height={1920}
