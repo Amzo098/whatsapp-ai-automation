@@ -2,6 +2,7 @@ import "./index.css";
 import { Composition } from "remotion";
 import { Main45s } from "./Main45s";
 import { MainChoixDesPlats } from "./MainChoixDesPlats";
+import { MainTestimonial } from "./MainTestimonial";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -20,6 +21,15 @@ export const RemotionRoot: React.FC = () => {
         id="ChoixDesPlats"
         component={MainChoixDesPlats}
         durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      {/* Vidéo témoignage AIDA "Chez nous, c'est du vrai" 22s */}
+      <Composition
+        id="TemoignageClients"
+        component={MainTestimonial}
+        durationInFrames={662}
         fps={30}
         width={1080}
         height={1920}
